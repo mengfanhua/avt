@@ -627,6 +627,9 @@ impl Vt {
     }
 
     fn execute_cr(&mut self) {
+        if self.cursor_x >= self.cols {
+            self.move_cursor_to_row(self.cursor_y + 1);
+        }
         self.do_move_cursor_to_col(0);
     }
 
